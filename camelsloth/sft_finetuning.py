@@ -5,6 +5,7 @@ from datasets import load_dataset, Dataset
 from transformers import TrainingArguments
 from trl import SFTTrainer
 from unsloth import FastLanguageModel, is_bfloat16_supported
+import json
 
 def finetune_model(config: dict, data_file: str):
     # Load config
@@ -54,7 +55,7 @@ def finetune_model(config: dict, data_file: str):
     raw_data = []
     with open(data_file, "r", encoding="utf-8") as f:
         for line in f:
-            raw_data.append(eval(line))  # or json.loads
+            raw_data.append(json.loads(line))
 
     dataset = Dataset.from_list(raw_data)
 

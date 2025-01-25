@@ -13,7 +13,8 @@ setuptools.setup(
         "transformers",
         "trl",
         "unsloth",
-        "camel-ai==0.2.16"
+        "camel-ai==0.2.16",
+        "rouge",
     ],
     python_requires=">=3.8"
 )
