@@ -1,0 +1,70 @@
+api_keys:
+  openai: "sk-xxxx-REPLACE_WITH_YOUR_OPENAI_KEY"
+  huggingface: "hf_xxxx-REPLACE_WITH_YOUR_HF_TOKEN"
+
+data_generation:
+  qa_data_path: "data/qa_data.json"  # Local or remote JSON with Q->A
+  model_platform: "OPENAI"           # e.g., OPENAI, QWEN, etc.
+  model_type: "GPT_4O_MINI"          # e.g., GPT_3_5_TURBO, GPT_4O_MINI, etc.
+  system_message: "You are a genius at slow-thinking data and code"
+
+fine_tuning:
+  base_model_name: "unsloth/Qwen2.5-1.5B"   # or "unsloth/Meta-Llama-3.1-8B-bnb-4bit", etc.
+  max_seq_length: 2048
+  dtype: null             # or float16
+  load_in_4bit: true
+  lora_rank: 16
+  lora_target_modules:
+    - q_proj
+    - k_proj
+    - v_proj
+    - o_proj
+    - gate_proj
+    - up_proj
+    - down_proj
+  lora_alpha: 16
+  lora_dropout: 0
+  bias: "none"
+  use_gradient_checkpointing: "unsloth"
+  random_state: 3407
+  use_rslora: false
+  loftq_config: null
+  output_dir: "outputs"
+
+training:
+  per_device_train_batch_size: 2
+  gradient_accumulation_steps: 4
+  warmup_steps: 5
+  max_steps: 60
+  learning_rate: 0.0002
+  fp16: true
+  bf16: false
+  logging_steps: 1
+  optim: "adamw_8bit"
+  weight_decay: 0.01
+  lr_scheduler_type: "linear"
+  seed: 3407
+  report_to: "none"
+
+dataset:
+  dataset_name: "myuser/cot-dataset"
+  alpaca_prompt: |
+    Below is an instruction that describes a task, paired with an input that provides further context.
+
+    ### Instruction:
+    {}
+    ### Input:
+    {}
+    ### Response:
+    {}
+  eos_token: "<|endoftext|>"
+  dataset_text_field: "text"
+  packing: false
+
+huggingface_upload:
+  username: "myuser"
+  dataset_name: "cotdata01"
+
+model_saving:
+  local_save_path: "lora_model"
+  huggingface_repo_name: "myuser/cot-finetuned-model"
