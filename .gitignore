@@ -7,3 +7,11 @@ camelsloth.egg-info/PKG-INFO
 camelsloth.egg-info/requires.txt
 camelsloth.egg-info/SOURCES.txt
 camelsloth.egg-info/top_level.txt
+build/lib/camelsloth/__init__.py
+build/lib/camelsloth/config_parser.py
+build/lib/camelsloth/data_generation.py
+build/lib/camelsloth/data_preprocessing.py
+build/lib/camelsloth/main.py
+build/lib/camelsloth/sft_finetuning.py
+build/lib/camelsloth/utils.py
+dist/camelsloth-0.1.0-py3.12.egg

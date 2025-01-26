@@ -1,0 +1,24 @@
+[project]
+name = "camelsloth"
+version = "0.1.0"
+description = "CamelSloth is a meta-library that automates the process Change of thought fine tuning"
+authors = [
+    {name = "Amir AH2324@cornell.edu"}
+]
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "pyyaml",
+    "huggingface-hub",
+    "datasets",
+    "transformers",
+    "trl",
+    "unsloth",
+    "camel-ai==0.2.16",
+    "rouge"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
