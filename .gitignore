@@ -15,3 +15,5 @@ build/lib/camelsloth/main.py
 build/lib/camelsloth/sft_finetuning.py
 build/lib/camelsloth/utils.py
 dist/camelsloth-0.1.0-py3.12.egg
+camelsloth/__pycache__/data_preprocessing.cpython-312.pyc
+camelsloth/__pycache__/sft_finetuning.cpython-312.pyc
